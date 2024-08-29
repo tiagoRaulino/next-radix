@@ -10,7 +10,7 @@ interface MyCardProps {
 const MyCard: React.FC<MyCardProps> = ({ room, keyowner, available, id }) => {
     return (
         <Box key={id} maxWidth="480px">
-            <Card>
+            <Card size={"2"}>
                 <Flex gap="3" align="center">
                     <Box>
                         <Text as="div" size="3" weight="bold">
@@ -20,13 +20,13 @@ const MyCard: React.FC<MyCardProps> = ({ room, keyowner, available, id }) => {
                             {keyowner}
                         </Text>
                     </Box>
-                    <Flex gap="2" ml={"auto"}>
-                        {keyowner === "you" && <Button ml={"3"}>Repassar</Button>}
+                    <Flex gap="3" ml={"auto"}>
                         {available ? (
                             <Badge color="green">Disponivel</Badge>
                         ) : (
                             <Badge color="red">Indisponivel</Badge>
                         )}
+                        {keyowner === "you" && <Button>Repassar Chave</Button>}
                     </Flex>
                 </Flex>
             </Card>

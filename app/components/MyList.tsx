@@ -1,7 +1,6 @@
 'use client'
 
-import { TextField, Container } from "@radix-ui/themes";
-import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { Container } from "@radix-ui/themes";
 import { useState, useEffect } from 'react';
 import MyCard from './MyCard';
 import SearchBar from "./SearchBar";
@@ -34,6 +33,7 @@ function MyList() {
                 <SearchBar search={search} onChange={setSearch} />
                 {filteredRooms.map((data, index) => (
                     <MyCard
+                        key={index}
                         id={index}
                         room={data.room}
                         keyowner={data.keyowner}
