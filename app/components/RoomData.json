@@ -1,0 +1,74 @@
+[
+    {
+        "room": "Sala 1",
+        "keyowner": "John Doe",
+        "available": true,
+        "open": false
+    },
+    {
+        "room": "Atelie",
+        "keyowner": "Jane Smith",
+        "available": false,
+        "open": true
+    },
+    {
+        "room": "Sala 2",
+        "keyowner": "Alice Johnson",
+        "available": true,
+        "open": true
+    },
+    {
+        "room": "Fablab",
+        "keyowner": "Bob Brown",
+        "available": false,
+        "open": false
+    },
+    {
+        "room": "Sala 3",
+        "keyowner": "John Doe",
+        "available": true,
+        "open": false
+    },
+    {
+        "room": "Sala 4",
+        "keyowner": "Jane Smith",
+        "available": false,
+        "open": true
+    },
+    {
+        "room": "Centro Academico",
+        "keyowner": "Alice Johnson",
+        "available": true,
+        "open": true
+    },
+    {
+        "room": "Lab 1",
+        "keyowner": "Bob Brown",
+        "available": false,
+        "open": false
+    },
+    {
+        "room": "Lab 2",
+        "keyowner": "John Doe",
+        "available": true,
+        "open": false
+    },
+    {
+        "room": "Lab 3",
+        "keyowner": "Jane Smith",
+        "available": false,
+        "open": true
+    },
+    {
+        "room": "Lab 4",
+        "keyowner": "Alice Johnson",
+        "available": true,
+        "open": true
+    },
+    {
+        "room": "Lab 5",
+        "keyowner": "Bob Brown",
+        "available": false,
+        "open": false
+    }
+]
