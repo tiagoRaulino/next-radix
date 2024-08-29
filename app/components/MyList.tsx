@@ -4,6 +4,7 @@ import { TextField, Container } from "@radix-ui/themes";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { useState, useEffect } from 'react';
 import MyCard from './MyCard';
+import SearchBar from "./SearchBar";
 
 interface RoomData {
     room: string;
@@ -30,19 +31,10 @@ function MyList() {
     return (
         <div>
             <Container maxWidth={"480px"}>
-                <form className="d-flex" role="search">
-                    <TextField.Root
-                        type="text"
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                        placeholder="Search">
-                        <TextField.Slot>
-                            <MagnifyingGlassIcon height="16" width="16" />
-                        </TextField.Slot>
-                    </TextField.Root>
-                </form>
+                <SearchBar search={search} onChange={setSearch} />
                 {filteredRooms.map((data, index) => (
                     <MyCard
+                        id={index}
                         room={data.room}
                         keyowner={data.keyowner}
                         available={data.available}

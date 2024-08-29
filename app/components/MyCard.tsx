@@ -1,14 +1,15 @@
 import { Card, Flex, Text, Badge, Box, Button } from "@radix-ui/themes";
 
 interface MyCardProps {
+    id: number;
     room: string;
     keyowner: string;
     available: boolean;
 }
 
-const MyCard: React.FC<MyCardProps> = ({ room, keyowner, available }) => {
+const MyCard: React.FC<MyCardProps> = ({ room, keyowner, available, id }) => {
     return (
-        <Box maxWidth="480px">
+        <Box key={id} maxWidth="480px">
             <Card>
                 <Flex gap="3" align="center">
                     <Box>
@@ -20,12 +21,12 @@ const MyCard: React.FC<MyCardProps> = ({ room, keyowner, available }) => {
                         </Text>
                     </Box>
                     <Flex gap="2" ml={"auto"}>
+                        {keyowner === "you" && <Button ml={"3"}>Repassar</Button>}
                         {available ? (
                             <Badge color="green">Disponivel</Badge>
                         ) : (
                             <Badge color="red">Indisponivel</Badge>
                         )}
-                        {keyowner === "you" && <Button ml={"3"}>Repassar</Button>}
                     </Flex>
                 </Flex>
             </Card>
