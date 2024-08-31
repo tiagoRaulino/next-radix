@@ -20,7 +20,7 @@ function MyList() {
         fetch('../roomData.json')
             .then(response => response.json())
             .then(data => setRoomData(data))
-            .catch(error => console.error('Error fetching room data:', error));
+            .catch(error => console.error('Error fetching local room data:', error));
     }, []);
 
     const filteredRooms = roomData.filter((data) =>
