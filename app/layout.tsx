@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
 import "@radix-ui/themes/styles.css";
-import { Theme, ThemePanel } from "@radix-ui/themes";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Theme } from "@radix-ui/themes";
+import '/styles/globals.css'
 
 export const metadata: Metadata = {
   title: "Portuno Next Radix",
@@ -18,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body style={{margin: 0}}>
         <Theme accentColor="blue" panelBackground="solid" radius="small" appearance="dark">{children}</Theme>
       </body>
     </html>

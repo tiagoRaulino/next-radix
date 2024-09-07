@@ -26,7 +26,7 @@ const MyCard: React.FC<MyCardProps> = ({ room, keyowner, available, id }) => {
                         ) : (
                             <Badge color="red">Indisponivel</Badge>
                         )}
-                        {keyowner === "you" && <Button>Repassar Chave</Button>}
+                        {keyowner === "you" && <Button>Repassar</Button>}
                     </Flex>
                 </Flex>
             </Card>
