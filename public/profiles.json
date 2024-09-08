@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "name": "John Doe",
+        "bio": "Software Developer from NY."
+    },
+    {
+        "id": "2",
+        "name": "Jane Smith",
+        "bio": "Product Manager from SF."
+    },
+    {
+        "id": "3",
+        "name": "Alice Johnson",
+        "bio": "UX Designer from LA."
+    }
+]
