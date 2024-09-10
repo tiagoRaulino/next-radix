@@ -1,17 +1,17 @@
 [
     {
         "id": "1",
-        "name": "John Doe",
-        "bio": "Software Developer from NY."
+        "name": "Fernando Lima Soares",
+        "phone": "85 98834-7651"
     },
     {
         "id": "2",
-        "name": "Jane Smith",
-        "bio": "Product Manager from SF."
+        "name": "Marina Santos Oliveira",
+        "phone": "85 99876-3400"
     },
     {
         "id": "3",
         "name": "Alice Johnson",
-        "bio": "UX Designer from LA."
+        "phone": "85 94674-4661"
     }
 ]

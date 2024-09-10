@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "@radix-ui/themes/styles.css";
-import { Theme } from "@radix-ui/themes";
+import { Theme, Container } from "@radix-ui/themes";
 import '/styles/globals.css'
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Portuno Next Radix",
@@ -15,8 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{margin: 0}}>
-        <Theme accentColor="blue" panelBackground="solid" radius="small" appearance="dark">{children}</Theme>
+      <body style={{ margin: 0 }}>
+        <Theme accentColor="indigo" panelBackground="solid" radius="small" appearance="dark">
+        <Navbar />
+          <Container mx="3">
+            {children}
+          </Container>
+        </Theme>
       </body>
     </html>
   );

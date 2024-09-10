@@ -1,7 +1,9 @@
+import { Heading } from "@radix-ui/themes"
+
 function Credentials() {
   return (
     <div>
-      <h1>Hello World!</h1>
+      <Heading mb="2" size="4">Pagina de Credenciais</Heading>
     </div>
   )
 }

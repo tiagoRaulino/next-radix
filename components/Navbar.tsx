@@ -1,8 +1,8 @@
-// components/Navbar.tsx
+'use client'
 
 import React, { useState } from 'react';
-import { Flex } from '@radix-ui/themes';
-import { Button } from '@radix-ui/themes';
+import { Flex, Button } from '@radix-ui/themes';
+import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 
 const Navbar: React.FC = () => {
@@ -20,55 +20,61 @@ const Navbar: React.FC = () => {
                 align="center"
                 px="4"
                 py="2"
-                style={{ backgroundColor: "var(--accent)" }} // Use Radix accent color
+                style={{ borderBottom: '1px solid var(--gray-6)' }}
             >
-                {/* Logo Section */}
-                <div className="text-2xl font-bold">
-                    <Link href="/">Portuno</Link>
-                </div>
+            {/*Brand*/}
+            <div className="text-2xl font-bold">
+                <Link href="/">Portuno</Link>
+            </div>
 
-                {/* Desktop Menu */}
-                <div className="hidden md:flex gap-4">
-                    <Link href="/about">
-                        <Button variant="ghost" className="text-white">About</Button>
-                    </Link>
-                    <Link href="/services">
-                        <Button variant="ghost" className="text-white">Services</Button>
-                    </Link>
-                    <Link href="/contact">
-                        <Button variant="ghost" className="text-white">Contact</Button>
-                    </Link>
-                </div>
+            {/*Navegação Desktop*/}
+            <div className="hidden md:flex gap-4">
+                <Link href="/">
+                    <Button variant="ghost" className="text-white">Salas</Button>
+                </Link>
+                <Link href="/credentials">
+                    <Button variant="ghost" className="text-white">Credenciais</Button>
+                </Link>
+                <Link href="/ajuda">
+                    <Button variant="ghost" className="text-white">Ajuda</Button>
+                </Link>
+                <Link href="/profile/1">
+                    <Button variant="ghost" className="text-white">Perfil</Button>
+                </Link>
+            </div>
 
-                {/* Mobile Menu Button */}
-                <div className="md:hidden">
-                    <Button onClick={toggleMenu} className="text-white">
-                        {isOpen ? 'Close' : 'Menu'}
-                    </Button>
-                </div>
+            {/*Botão Navegação Mobile*/}
+            <div className="md:hidden">
+                <Button variant="ghost" onClick={toggleMenu} className="text-white">
+                    <HamburgerMenuIcon />
+                </Button>
+            </div>
+        </Flex>
+
+            {/*Navegação Mobile*/ }
+    {
+        isOpen && (
+            <Flex
+                as="div"
+                direction="column"
+                className="text-white p-4 md:hidden"
+            >
+                <Link href="/">
+                    <Button variant="ghost" className="text-white">Salas</Button>
+                </Link>
+                <Link href="/credentials">
+                    <Button variant="ghost" className="text-white">Credenciais</Button>
+                </Link>
+                <Link href="/ajuda">
+                    <Button variant="ghost" className="text-white">Ajuda</Button>
+                </Link>
+                <Link href="/profile/1">
+                    <Button variant="ghost" className="text-white">Perfil</Button>
+                </Link>
             </Flex>
-
-            {/* Mobile Menu */}
-            {isOpen && (
-                <Flex
-                    as="div"
-                    direction="column"
-                    align="center"
-                    className="bg-gray-800 text-white p-4 md:hidden"
-                >
-                    <Link href="/about">
-                        <Button variant="ghost" className="text-white">About</Button>
-                    </Link>
-
-                    <Link href="/services">
-                        <Button variant="ghost" className="text-white">Services</Button>
-                    </Link>
-                    <Link href="/contact">
-                        <Button variant="ghost" className="text-white">Contact</Button>
-                    </Link>
-                </Flex>
-            )}
-        </header>
+        )
+    }
+        </header >
     );
 };
 
