@@ -1,4 +1,4 @@
-# Sistema Controle de Chaves
+# Sistema Controle de Chaves (Portuno)
 Este é um projeto de discentes do curso Sistemas e Mídias Digitais da UFC para melhorar a organização, segurança e o conforto do sistema de posse e transferencia de chaves dos laboratórios. O objetivo é beneficiar alunos, professores e tecnicos administrativos educacionais do bloco UFC Virtual em relação ao monitoramento e emprestimo de chaves de laboratório.
 
 ## Equipe do Projeto
@@ -22,11 +22,11 @@ Algumas funcionalidades do projeto são:
 ### 1. Clonando o repositório
 * Crie ou escolha uma pasta na sua maquina para receber os arquivos do projeto
 * Abra a pasta utilizando um terminal
-* Digite o código: `https://github.com/tiagoRaulino/sistema-controle-de-chaves.git`
+* Digite o código: `git clone https://github.com/tiagoRaulino/portuno-next-radix.git` (lembre se de ter o git instalado antes de usar qualquer comando git)
   
 ### 2. Instale os pacotes necessários
 * Em seguida digite `npm install` no seu terminal para instalar os pacotes necessários (lembre-se de ter o Node.js instalado antes usar qualquer comando npm)
 
 ### 3. Iniciando um Localhost no seu navegador
 * Com os pacotes necessários instalados, inicie um host local. Digite `npm run dev`
-* Em seguida, acesse `http://localhost:3000/`
+* Em seguida, acesse <http://localhost:3000/>
