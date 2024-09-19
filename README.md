@@ -3,11 +3,11 @@ Este é um projeto de discentes do curso Sistemas e Mídias Digitais da UFC para
 
 ## Sumário
 
-* Equipe do Projeto
-* Resumo do Projeto
-* Tecnologias do Projeto
-* Alguns Requisitos Funcionais 
-* Relatório Técnico 
+* Equipe do projeto
+* Resumo do projeto
+* Tecnologias do projeto
+* Algumas funcionalidades do projeto: 
+* Relatório técnico do projeto 
 * Testando a Aplicação 
 
 ## Equipe do projeto
@@ -21,7 +21,7 @@ Tomando como cliente a secretária do curso Sistemas e Mídias Digitais da Unive
 ## Tecnologias do projeto
 Forms Google, Docs Google, Google drive, Trello, Git, Github, Node.js, Node Package Manager, Vite, React, React router, Bootstrap, Figma, Visual Studio Code, Firefox devtools, Chatgpt, Replit, Nextjs, Typescript, Tailwind, Radix ui, Vercel, Supabase.
 
-## Algumas funcionalidades do projeto são:
+## Algumas funcionalidades do projeto:
 * Cadastrar e logar usuários.
 * Visualizar o mapa de salas.
 * Visualizar a disponibilidade de salas.
@@ -29,10 +29,10 @@ Forms Google, Docs Google, Google drive, Trello, Git, Github, Node.js, Node Pack
 * Verificar as credenciais que possui.
 * Notificar usuários em caso de esquecimento de chaves.
 
-## Relatório do projeto
+## Relatório técnico do projeto
 Aqui está o link para a mais recente versão do nosso relatório: https://drive.google.com/file/d/1mxZT_8jh0SuRaB8Lbj_uTnNfGAEi7GSr/view?usp=sharing
 
-## Testando o Aplicativo 
+## Testando a aplicação 
 
 ### 1. Clonando o repositório
 * Crie ou escolha uma pasta na sua maquina para receber os arquivos do projeto
