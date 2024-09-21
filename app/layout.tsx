@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "@radix-ui/themes/styles.css";
-import { Theme, Container } from "@radix-ui/themes";
+import { Theme } from "@radix-ui/themes";
 import '/styles/globals.css'
 import Navbar from "@/components/Navbar";
 
@@ -16,12 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico"/>
+      </head>
       <body style={{ margin: 0 }}>
         <Theme accentColor="indigo" panelBackground="solid" radius="small" appearance="dark">
         <Navbar />
-          <Container mx="3">
             {children}
-          </Container>
         </Theme>
       </body>
     </html>

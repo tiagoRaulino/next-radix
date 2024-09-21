@@ -5,11 +5,16 @@ import { useState, useEffect } from 'react';
 import MyCard from './MyCard';
 import SearchBar from "./SearchBar";
 
+
 interface RoomData {
-    room: string;
-    keyowner: string;
-    available: boolean;
-    open: boolean;
+    floor: number;
+    id: 1
+    name: string;
+    professor: any;
+    short_name: string;
+    status: string;
+    type: string;
+    user: any;
 }
 
 function MyList() {
@@ -17,14 +22,17 @@ function MyList() {
     const [roomData, setRoomData] = useState<RoomData[]>([]);
 
     useEffect(() => {
-        fetch('../roomData.json')
+        fetch('https://portuno-api.vercel.app/classrooms')
             .then(response => response.json())
-            .then(data => setRoomData(data))
+            .then(data => {
+                // Assuming the structure is { data: [...] }
+                setRoomData(data.data || []);
+            })
             .catch(error => console.error('Error fetching local room data:', error));
     }, []);
 
     const filteredRooms = roomData.filter((data) =>
-        data.room.toLowerCase().includes(search.toLowerCase())
+        data.name.toLowerCase().includes(search.toLowerCase())
     );
 
     return (
@@ -35,9 +43,10 @@ function MyList() {
                     <MyCard
                         key={index}
                         id={index}
-                        room={data.room}
-                        keyowner={data.keyowner}
-                        available={data.available}
+                        name={data.name}
+                        user={data.user ? data.user : "Secretaria"}
+                        status={data.status}
+                        floor={data.floor}
                     />
                 ))}
             </Container>
@@ -46,3 +55,4 @@ function MyList() {
 }
 
 export default MyList;
+
