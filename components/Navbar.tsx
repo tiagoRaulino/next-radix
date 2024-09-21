@@ -14,13 +14,12 @@ const Navbar: React.FC = () => {
 
     return (
         <header>
-            <Flex
+            <Flex className='border-b border-[var(--gray-6)]'
                 as="div"
                 justify="between"
                 align="center"
                 px="4"
-                py="2"
-                style={{ borderBottom: '1px solid var(--gray-6)' }}
+                py="3"
             >
             {/*Brand*/}
             <div className="text-2xl font-bold">
@@ -30,16 +29,16 @@ const Navbar: React.FC = () => {
             {/*Navegação Desktop*/}
             <div className="hidden md:flex gap-4">
                 <Link href="/">
-                    <Button variant="ghost" className="text-white">Salas</Button>
+                    <Button variant="ghost" className="text-white font-medium">Salas</Button>
                 </Link>
                 <Link href="/credentials">
-                    <Button variant="ghost" className="text-white">Credenciais</Button>
+                    <Button variant="ghost" className="text-white font-medium">Credenciais</Button>
                 </Link>
                 <Link href="/ajuda">
-                    <Button variant="ghost" className="text-white">Ajuda</Button>
+                    <Button variant="ghost" className="text-white font-medium">Ajuda</Button>
                 </Link>
                 <Link href="/profile/1">
-                    <Button variant="ghost" className="text-white">Perfil</Button>
+                    <Button variant="ghost" className="text-white font-medium">Perfil</Button>
                 </Link>
             </div>
 
@@ -55,21 +54,22 @@ const Navbar: React.FC = () => {
     {
         isOpen && (
             <Flex
+                gap="1"
                 as="div"
                 direction="column"
-                className="text-white p-4 md:hidden"
+                className="bg-zinc-900 text-white px-4 py-2 md:hidden"
             >
                 <Link href="/">
-                    <Button variant="ghost" className="text-white">Salas</Button>
+                    <Button variant="ghost" className="text-white font-medium">Salas</Button>
                 </Link>
                 <Link href="/credentials">
-                    <Button variant="ghost" className="text-white">Credenciais</Button>
+                    <Button variant="ghost" className="text-white font-medium">Credenciais</Button>
                 </Link>
                 <Link href="/ajuda">
-                    <Button variant="ghost" className="text-white">Ajuda</Button>
+                    <Button variant="ghost" className="text-white font-medium">Ajuda</Button>
                 </Link>
                 <Link href="/profile/1">
-                    <Button variant="ghost" className="text-white">Perfil</Button>
+                    <Button variant="ghost" className="text-white font-medium">Perfil</Button>
                 </Link>
             </Flex>
         )

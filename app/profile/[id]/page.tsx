@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Heading, DataList, Badge, Flex, Code, Link, IconButton, AspectRatio, Box, Container } from '@radix-ui/themes';
+import { Heading, Flex, Text, Badge, Code, Link, IconButton, AspectRatio, Box } from '@radix-ui/themes';
 import { CopyIcon } from '@radix-ui/react-icons';
 
 interface UserProfile {
@@ -43,87 +43,79 @@ const ProfilePage = () => {
   if (!profile) {
     return <p>Profile not found.</p>;
   }
-  //o conteúdo abaixo ainda será extraído para um componente para que somente algumas tags e suas props estejam no render.
+
   return (
-    <Container>
-      <Box px="5" my="5">
-        <Container>
-          <AspectRatio ratio={1 / 1}>
+    <Flex
+      direction="column"
+      justify="start" // Align content at the top of the page
+      align="center" // Center content horizontally
+      className="min-h-screen p-4 text-white"
+    >
+      <Box className="w-full max-w-lg">
+        <Box className="p-12 max-w-sm mx-auto">
+          <AspectRatio ratio={1 / 1} className="rounded-lg overflow-hidden">
             <img
-              src="https://picsum.photos/200"
-              alt="A house in a forest"
-              style={{
-                objectFit: 'cover',
-                width: '100%',
-                height: '100%',
-                borderRadius: 'var(--radius-2)',
-              }}
+              src="https://picsum.photos/400"
+              alt="Profile"
+              className="object-cover w-full h-full rounded-2xl"
             />
           </AspectRatio>
-        </Container>
-      </Box>
-      <Box px="5" my="3">
-        <Heading mb="5" size="5">{profile.name}</Heading>
-        <DataList.Root>
-          <DataList.Item align="center">
-            <DataList.Label minWidth="88px">Cargo:</DataList.Label>
-            <DataList.Value>
-              <Badge color="blue" variant="soft" radius="full">
+        </Box>
+        <Box className="mt-6">
+          <Heading size="4" className="text-xl font-bold mb-4">
+            {profile.name}
+          </Heading>
+          <Box>
+            <Flex justify="between" className="items-center mb-4">
+              <Text className="text-sm font-semibold">Cargo:</Text>
+              <Badge className="bg-blue-500 text-white px-2 py-1 rounded-md">
                 Aluno
               </Badge>
-            </DataList.Value>
-          </DataList.Item>
-          <DataList.Item>
-            <DataList.Label minWidth="88px">Matrícula:</DataList.Label>
-            <DataList.Value>
+            </Flex>
+            <Flex justify="between" className="items-center mb-4">
+              <Text className="text-sm font-semibold">Matrícula:</Text>
               <Flex align="center" gap="2">
-                <Code variant="ghost">557860</Code>
+                <Code className="text-sm">557860</Code>
                 <IconButton
                   size="1"
                   aria-label="Copy value"
-                  color="gray"
-                  variant="ghost"
+                  className="text-gray-500"
                 >
                   <CopyIcon />
                 </IconButton>
               </Flex>
-            </DataList.Value>
-          </DataList.Item>
-          <DataList.Item>
-            <DataList.Label minWidth="88px">Número:</DataList.Label>
-            <DataList.Value>
+            </Flex>
+            <Flex justify="between" className="items-center mb-4">
+              <Text className="text-sm font-semibold">Número:</Text>
               <Flex align="center" gap="2">
-                <Code variant="ghost">85 99876-3400</Code>
+                <Code className="text-sm">85 99876-3400</Code>
                 <IconButton
                   size="1"
                   aria-label="Copy value"
-                  color="gray"
-                  variant="ghost"
+                  className="text-gray-500"
                 >
                   <CopyIcon />
                 </IconButton>
               </Flex>
-            </DataList.Value>
-          </DataList.Item>
-          <DataList.Item>
-            <DataList.Label minWidth="88px">Email:</DataList.Label>
-            <DataList.Value>
-              <Link href="mailto:vlad@workos.com">vlad@workos.com</Link>
-            </DataList.Value>
-          </DataList.Item>
-          <DataList.Item>
-            <DataList.Value>
-              <Badge color="green" variant="soft" radius="full">
+            </Flex>
+            <Flex justify="between" className="items-center mb-4">
+              <Text className="text-sm font-semibold">Email:</Text>
+              <Link href="mailto:vlad@workos.com" className="text-blue-400">
+                vlad@workos.com
+              </Link>
+            </Flex>
+            <Flex gap="2" className="mt-4">
+              <Badge className="bg-green-600 text-white px-2 py-1 rounded-md">
                 LabVis
               </Badge>
-              <Badge color="green" variant="soft" radius="full">
+              <Badge className="bg-green-600 text-white px-2 py-1 rounded-md">
                 Secretaria
               </Badge>
-            </DataList.Value>
-          </DataList.Item>
-        </DataList.Root>
+            </Flex>
+          </Box>
+        </Box>
       </Box>
-    </Container>
+    </Flex>
   );
 };
 

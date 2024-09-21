@@ -1,18 +1,16 @@
 'use client'
 
-import MyModal from "@/components/MyModal";
+import { Container } from "@radix-ui/themes";
 import MyList from "../components/MyList";
 import { Heading } from "@radix-ui/themes";
 
 export default function Home() {
   return (
-    <div>
-      <Heading mb="5" mt="6" size="7">Lista de salas</Heading>
-      <MyModal buttonLabel="Repassar">
-        <p>This is some dynamic content inside the modal!</p>
-        <p>You can add more content as needed.</p>
-      </MyModal>
-      <MyList/>
-    </div>
+    <Container>
+      <div>
+        <Heading mb="5" mt="6" size="7">Lista de salas</Heading>
+        <MyList/>
+      </div>
+    </Container>
   );
 }
