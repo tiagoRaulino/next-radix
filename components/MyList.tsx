@@ -1,14 +1,14 @@
 'use client'
 
-import { Container } from "@radix-ui/themes";
+import { Container, Box } from "@radix-ui/themes";
 import { useState, useEffect } from 'react';
 import MyCard from './MyCard';
 import SearchBar from "./SearchBar";
-
+import { fetchRoomData } from '../app/api/fetchRoomData';  // Import the function
 
 interface RoomData {
     floor: number;
-    id: 1
+    id: number;
     name: string;
     professor: any;
     short_name: string;
@@ -22,13 +22,7 @@ function MyList() {
     const [roomData, setRoomData] = useState<RoomData[]>([]);
 
     useEffect(() => {
-        fetch('https://portuno-api.vercel.app/classrooms')
-            .then(response => response.json())
-            .then(data => {
-                // Assuming the structure is { data: [...] }
-                setRoomData(data.data || []);
-            })
-            .catch(error => console.error('Error fetching local room data:', error));
+        fetchRoomData().then(setRoomData);
     }, []);
 
     const filteredRooms = roomData.filter((data) =>
@@ -36,9 +30,9 @@ function MyList() {
     );
 
     return (
-        <div>
-            <Container maxWidth={"480px"}>
-                <SearchBar search={search} onChange={setSearch} />
+        <Container maxWidth={"480px"}>
+            <SearchBar search={search} onChange={setSearch} />
+            <Box style={{ maxHeight: '720px', overflowY: 'auto', width: '100%' }}>
                 {filteredRooms.map((data, index) => (
                     <MyCard
                         key={index}
@@ -49,10 +43,9 @@ function MyList() {
                         floor={data.floor}
                     />
                 ))}
-            </Container>
-        </div>
+            </Box>
+        </Container>
     );
 }
 
 export default MyList;
-

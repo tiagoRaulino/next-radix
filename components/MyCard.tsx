@@ -10,12 +10,21 @@ interface RoomData {
 }
 
 const MyCard: React.FC<RoomData> = ({ floor, name, user, status, id }) => {
+    const getStatusBadge = (status: string) => {
+        if (status === "avaliable") {
+            return <Badge variant="outline" color="gray">Chave disponível</Badge>;
+        } else if (status === "occupied") {
+            return <Badge color="green">Aberta</Badge>;
+        }
+        return null;
+    };
+
     return (
         <Box key={id} maxWidth="480px">
             <Card size={"2"}>
                 <Flex gap="3" align="center">
                     <div>
-                        <Text as="div" size="3" weight="bold">
+                        <Text as="div" size="3" weight="bold" mb="2">
                             {name}
                         </Text>
                         <Text as="div" size="2" color="gray">
@@ -25,13 +34,9 @@ const MyCard: React.FC<RoomData> = ({ floor, name, user, status, id }) => {
                             {user}
                         </Text>
                     </div>
-                    <Flex direction="column" align="end" className="ml-auto">
-                        <div className="mb-1">
-                            {status ? (
-                                <Badge color="green">Disponivel</Badge>
-                            ) : (
-                                <Badge color="red">Indisponivel</Badge>
-                            )}
+                    <Flex direction="column" align="end" className="ml-auto justify-between">
+                        <div className="mb-3">
+                            {getStatusBadge(status)}
                         </div>
                         <div>
                             {user === "Secretaria" && (
@@ -67,3 +72,4 @@ const MyCard: React.FC<RoomData> = ({ floor, name, user, status, id }) => {
 };
 
 export default MyCard;
+

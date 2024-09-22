@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import { Flex, Button } from '@radix-ui/themes';
+import { Flex, Button, IconButton } from '@radix-ui/themes';
 import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 
@@ -47,9 +47,9 @@ const Navbar: React.FC = () => {
 
                 {/*Botão Navegação Mobile*/}
                 <div className="md:hidden">
-                    <Button variant="ghost" onClick={toggleMenu} className="text-white">
+                    <IconButton variant="ghost" onClick={toggleMenu} className='text-white my-auto' size="3">
                         <HamburgerMenuIcon />
-                    </Button>
+                    </IconButton>
                 </div>
             </Flex>
 
