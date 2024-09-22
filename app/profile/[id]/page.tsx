@@ -2,8 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Heading, Flex, Text, Badge, Code, Link, IconButton, AspectRatio, Box } from '@radix-ui/themes';
-import { CopyIcon } from '@radix-ui/react-icons';
+import { Heading, Flex, Text, Badge, Code, Link, AspectRatio, Box } from '@radix-ui/themes';
 
 interface UserProfile {
   id: string;
@@ -51,7 +50,7 @@ const ProfilePage = () => {
       align="center" // Center content horizontally
       className="min-h-screen p-4 text-white"
     >
-      <Box className="w-full max-w-lg">
+      <Box className="w-full max-w-screen-md">
         <Box className="p-12 max-w-sm mx-auto">
           <AspectRatio ratio={1 / 1} className="rounded-lg overflow-hidden">
             <img
@@ -62,57 +61,51 @@ const ProfilePage = () => {
           </AspectRatio>
         </Box>
         <Box className="mt-6">
-          <Heading size="4" className="text-xl font-bold mb-4">
+          <Heading className="text-2xl sm:text-3xl font-bold mb-4">
             {profile.name}
           </Heading>
-          <Box>
-            <Flex justify="between" className="items-center mb-4">
-              <Text className="text-sm font-semibold">Cargo:</Text>
-              <Badge className="bg-blue-500 text-white px-2 py-1 rounded-md">
-                Aluno
-              </Badge>
-            </Flex>
-            <Flex justify="between" className="items-center mb-4">
-              <Text className="text-sm font-semibold">Matrícula:</Text>
-              <Flex align="center" gap="2">
-                <Code className="text-sm">557860</Code>
-                <IconButton
-                  size="1"
-                  aria-label="Copy value"
-                  className="text-gray-500"
-                >
-                  <CopyIcon />
-                </IconButton>
+          <Flex>
+            <Box mr={"6"}>
+              <Flex justify="between" className="items-center mb-4">
+                <Text className="text-base sm:text-lg font-medium">Cargo:</Text>
               </Flex>
-            </Flex>
-            <Flex justify="between" className="items-center mb-4">
-              <Text className="text-sm font-semibold">Número:</Text>
-              <Flex align="center" gap="2">
-                <Code className="text-sm">85 99876-3400</Code>
-                <IconButton
-                  size="1"
-                  aria-label="Copy value"
-                  className="text-gray-500"
-                >
-                  <CopyIcon />
-                </IconButton>
+              <Flex justify="between" className="items-center mb-4">
+                <Text className="text-base sm:text-lg font-medium">Matrícula:</Text>
               </Flex>
-            </Flex>
-            <Flex justify="between" className="items-center mb-4">
-              <Text className="text-sm font-semibold">Email:</Text>
-              <Link href="mailto:vlad@workos.com" className="text-blue-400">
-                vlad@workos.com
-              </Link>
-            </Flex>
-            <Flex gap="2" className="mt-4">
-              <Badge className="bg-green-600 text-white px-2 py-1 rounded-md">
-                LabVis
-              </Badge>
-              <Badge className="bg-green-600 text-white px-2 py-1 rounded-md">
-                Secretaria
-              </Badge>
-            </Flex>
-          </Box>
+              <Flex justify="between" className="items-center mb-4">
+                <Text className="text-base sm:text-lg font-medium">Número:</Text>
+              </Flex>
+              <Flex justify="between" className="items-center mb-4">
+                <Text className="text-base sm:text-lg font-medium">Email:</Text>
+              </Flex>
+            </Box>
+            <Box>
+              <Flex justify="between" className="items-center mb-4">
+                <Badge className="bg-blue-500 text-white px-2 py-1 rounded-md">
+                  Aluno
+                </Badge>
+              </Flex>
+              <Flex justify="between" className="items-center mb-4">
+                <Text className="text-base sm:text-lg">557860</Text>
+              </Flex>
+              <Flex align="center" gap="2">
+                <Text className="text-base sm:text-lg">85 99876-3400</Text>
+              </Flex>
+              <Flex justify="between" className="items-center mb-4">
+                <Link href="mailto:vlad@workos.com" className="text-blue-400">
+                  vlad@workos.com
+                </Link>
+              </Flex>
+            </Box>
+          </Flex>
+          <Flex gap="1" className="mt-4">
+            <Badge className="bg-green-600 text-white px-2 py-1 rounded-md">
+              LabVis
+            </Badge>
+            <Badge className="bg-green-600 text-white px-2 py-1 rounded-md">
+              Secretaria
+            </Badge>
+          </Flex>
         </Box>
       </Box>
     </Flex>

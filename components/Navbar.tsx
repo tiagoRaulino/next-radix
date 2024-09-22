@@ -21,59 +21,62 @@ const Navbar: React.FC = () => {
                 px="4"
                 py="3"
             >
-            {/*Brand*/}
-            <div className="text-2xl font-bold">
-                <Link href="/">Portuno</Link>
-            </div>
+                {/*Brand*/}
+                <div className="text-2xl font-bold">
+                    <Link href="/">Portuno</Link>
+                </div>
 
-            {/*Navegação Desktop*/}
-            <div className="hidden md:flex gap-4">
-                <Link href="/">
-                    <Button variant="ghost" className="text-white font-medium">Salas</Button>
-                </Link>
-                <Link href="/credentials">
-                    <Button variant="ghost" className="text-white font-medium">Credenciais</Button>
-                </Link>
-                <Link href="/ajuda">
-                    <Button variant="ghost" className="text-white font-medium">Ajuda</Button>
-                </Link>
-                <Link href="/profile/1">
-                    <Button variant="ghost" className="text-white font-medium">Perfil</Button>
-                </Link>
-            </div>
+                {/*Navegação Desktop*/}
+                <div className="hidden md:flex gap-1 justify-center">
+                    <Link href="/">
+                        <Button variant="soft" className="text-white font-medium border-0">Salas</Button>
+                    </Link>
+                    <Link href="/credentials">
+                        <Button variant="soft" className="text-white font-medium">Credenciais</Button>
+                    </Link>
+                    <Link href="/ajuda">
+                        <Button variant="soft" className="text-white font-medium">Ajuda</Button>
+                    </Link>
+                    <Link href="/profile/1">
+                        <Button variant="soft" className="text-white font-medium">Perfil</Button>
+                    </Link>
+                    <Link href="/login">
+                        <Button className="text-white font-medium">Login</Button>
+                    </Link>
+                </div>
 
-            {/*Botão Navegação Mobile*/}
-            <div className="md:hidden">
-                <Button variant="ghost" onClick={toggleMenu} className="text-white">
-                    <HamburgerMenuIcon />
-                </Button>
-            </div>
-        </Flex>
-
-            {/*Navegação Mobile*/ }
-    {
-        isOpen && (
-            <Flex
-                gap="1"
-                as="div"
-                direction="column"
-                className="bg-zinc-900 text-white px-4 py-2 md:hidden"
-            >
-                <Link href="/">
-                    <Button variant="ghost" className="text-white font-medium">Salas</Button>
-                </Link>
-                <Link href="/credentials">
-                    <Button variant="ghost" className="text-white font-medium">Credenciais</Button>
-                </Link>
-                <Link href="/ajuda">
-                    <Button variant="ghost" className="text-white font-medium">Ajuda</Button>
-                </Link>
-                <Link href="/profile/1">
-                    <Button variant="ghost" className="text-white font-medium">Perfil</Button>
-                </Link>
+                {/*Botão Navegação Mobile*/}
+                <div className="md:hidden">
+                    <Button variant="ghost" onClick={toggleMenu} className="text-white">
+                        <HamburgerMenuIcon />
+                    </Button>
+                </div>
             </Flex>
-        )
-    }
+
+            {/*Navegação Mobile*/}
+            {
+                isOpen && (
+                    <Flex
+                        gap="1"
+                        as="div"
+                        direction="column"
+                        className="bg-zinc-900 text-white px-4 py-2 md:hidden"
+                    >
+                        <Link href="/">
+                            <Button variant="ghost" className="text-white font-medium">Salas</Button>
+                        </Link>
+                        <Link href="/credentials">
+                            <Button variant="ghost" className="text-white font-medium">Credenciais</Button>
+                        </Link>
+                        <Link href="/ajuda">
+                            <Button variant="ghost" className="text-white font-medium">Ajuda</Button>
+                        </Link>
+                        <Link href="/profile/1">
+                            <Button variant="ghost" className="text-white font-medium">Perfil</Button>
+                        </Link>
+                    </Flex>
+                )
+            }
         </header >
     );
 };
