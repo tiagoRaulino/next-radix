@@ -1,8 +1,16 @@
 'use client';
 
 import { Heading, Flex, TextField, Box, Button } from '@radix-ui/themes';
+import { useRouter } from 'next/navigation';
 
 function Login() {
+    const router = useRouter();
+
+    const handleLogin = (event: React.FormEvent) => {
+        event.preventDefault();
+        router.push('/');
+    };
+
     return (
         <Flex
             direction="column"
@@ -15,7 +23,7 @@ function Login() {
                 <Heading mb="5" size="7" className="text-white mb-24">
                     Faça seu login
                 </Heading>
-                <form>
+                <form onSubmit={handleLogin}>
                     <Box mb="3">
                         <TextField.Root size="3"
                             type="text"
@@ -24,7 +32,7 @@ function Login() {
                     </Box>
                     <Box mb="3">
                         <TextField.Root size="3"
-                            type="text"
+                            type="password"
                             placeholder="Digite sua Senha">
                         </TextField.Root>
                     </Box>
