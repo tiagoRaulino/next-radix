@@ -32,7 +32,7 @@ function MyList() {
         .sort((a, b) => a.name.localeCompare(b.name));
 
     return (
-        <Box maxWidth={"480px"}>
+        <Box maxWidth={"480px"} className="border-b-zinc-800">
             <SearchBar placeholder="Pesquise uma sala" search={search} onChange={setSearch} />
             <Box
                 style={{

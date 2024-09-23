@@ -87,7 +87,7 @@ const ProfilePage = () => {
             </Button>
           </Flex>
           <MyModal
-            buttonLabel="Gerar QR Code"
+            buttonLabel="QR Code"
             title="QR Code"
             icon={<BorderSplitIcon />}
             buttonProps={{
