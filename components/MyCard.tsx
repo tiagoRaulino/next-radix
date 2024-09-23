@@ -1,5 +1,7 @@
 import { Card, Flex, Text, Badge, Box, Button } from "@radix-ui/themes";
 import MyModal from "./MyModal";
+import ModalContent1 from "./ModalContent1";
+import ModalContent2 from "./ModalContent2";
 
 interface RoomData {
     floor: number;
@@ -21,7 +23,7 @@ const MyCard: React.FC<RoomData> = ({ floor, name, user, status, id }) => {
 
     return (
         <Box key={id} maxWidth="480px">
-            <Card size={"2"}>
+            <Card size="2">
                 <Flex gap="3" align="center">
                     <div>
                         <Text as="div" size="3" weight="bold" mb="2">
@@ -41,26 +43,12 @@ const MyCard: React.FC<RoomData> = ({ floor, name, user, status, id }) => {
                         <div>
                             {user === "Secretaria" && (
                                 <MyModal buttonLabel="Solicitar" title="Solicitação de chave">
-                                    <Flex justify="center" gap="1em">
-                                        <Card className="px-2 py-10 bg-[#18191B] border border-[#3B3D41] text-neutral-100 rounded-md">
-                                            <Text weight={"bold"}>scannear qrcode</Text>
-                                        </Card>
-                                        <Card className="px-2 py-10 bg-[#18191B] border border-[#3B3D41] text-neutral-100 rounded-md">
-                                            <Text weight={"bold"}>pesquisar nome</Text>
-                                        </Card>
-                                    </Flex>
+                                    <ModalContent2 />
                                 </MyModal>
                             )}
                             {user === "João Victor Alves" && (
                                 <MyModal buttonLabel="Repassar" title="Repasse de chave">
-                                    <Flex justify="center" gap="2">
-                                        <Card className="px-2 py-10 bg-[#18191B] border border-[#3B3D41] text-neutral-100 rounded-md">
-                                            <Text weight={"bold"}>scannear qrcode</Text>
-                                        </Card>
-                                        <Card className="px-2 py-10 bg-[#18191B] border border-[#3B3D41] text-neutral-100 rounded-md">
-                                            <Text weight={"bold"}>pesquisar nome</Text>
-                                        </Card>
-                                    </Flex>
+                                    <ModalContent2 />
                                 </MyModal>
                             )}
                         </div>

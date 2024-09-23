@@ -2,12 +2,15 @@
 
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Heading, Flex, Text, Badge, Code, Link, AspectRatio, Box } from '@radix-ui/themes';
+import { Flex, AspectRatio, Box } from '@radix-ui/themes';
+import ProfileData from '../../../components/ProfileData';
 
 interface UserProfile {
-  id: string;
-  name: string;
-  bio: string;
+  ddd: number
+  id:	number
+  name:	string
+  number:	number
+  password:	string
 }
 
 const ProfilePage = () => {
@@ -18,12 +21,12 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch('/profiles.json');
-        const data: UserProfile[] = await response.json();
-
-        const foundProfile = data.find((profile) => profile.id === id);
-
-        setProfile(foundProfile || null);
+        const response = await fetch(`https://portuno-api.vercel.app/users/${id}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data: UserProfile = await response.json();
+        setProfile(data || null);
       } catch (error) {
         console.error('Error fetching profile:', error);
         setProfile(null);
@@ -46,11 +49,12 @@ const ProfilePage = () => {
   return (
     <Flex
       direction="column"
-      justify="start" // Align content at the top of the page
-      align="center" // Center content horizontally
-      className="min-h-screen p-4 text-white"
+      justify="start"
+      align="center"
+      className="px-4 text-white"
+      style={{ minHeight: `calc(100vh - 57px)` }}
     >
-      <Box className="w-full max-w-screen-md">
+      <Box className="w-full max-w-screen-sm">
         <Box className="p-12 max-w-sm mx-auto">
           <AspectRatio ratio={1 / 1} className="rounded-lg overflow-hidden">
             <img
@@ -60,53 +64,7 @@ const ProfilePage = () => {
             />
           </AspectRatio>
         </Box>
-        <Box className="mt-6">
-          <Heading className="text-2xl sm:text-3xl font-bold mb-4">
-            {profile.name}
-          </Heading>
-          <Flex>
-            <Box mr={"6"}>
-              <Flex justify="between" className="items-center mb-4">
-                <Text className="text-base sm:text-lg font-medium">Cargo:</Text>
-              </Flex>
-              <Flex justify="between" className="items-center mb-4">
-                <Text className="text-base sm:text-lg font-medium">Matrícula:</Text>
-              </Flex>
-              <Flex justify="between" className="items-center mb-4">
-                <Text className="text-base sm:text-lg font-medium">Número:</Text>
-              </Flex>
-              <Flex justify="between" className="items-center mb-4">
-                <Text className="text-base sm:text-lg font-medium">Email:</Text>
-              </Flex>
-            </Box>
-            <Box>
-              <Flex justify="between" className="items-center mb-4">
-                <Badge className="bg-blue-500 text-white px-2 py-1 rounded-md">
-                  Aluno
-                </Badge>
-              </Flex>
-              <Flex justify="between" className="items-center mb-4">
-                <Text className="text-base sm:text-lg">557860</Text>
-              </Flex>
-              <Flex align="center" gap="2">
-                <Text className="text-base sm:text-lg">85 99876-3400</Text>
-              </Flex>
-              <Flex justify="between" className="items-center mb-4">
-                <Link href="mailto:vlad@workos.com" className="text-blue-400">
-                  vlad@workos.com
-                </Link>
-              </Flex>
-            </Box>
-          </Flex>
-          <Flex gap="1" className="mt-4">
-            <Badge className="bg-green-600 text-white px-2 py-1 rounded-md">
-              LabVis
-            </Badge>
-            <Badge className="bg-green-600 text-white px-2 py-1 rounded-md">
-              Secretaria
-            </Badge>
-          </Flex>
-        </Box>
+        <ProfileData name={profile.name} userId={profile.id} number={`${profile.ddd} ${profile.number}`} />
       </Box>
     </Flex>
   );

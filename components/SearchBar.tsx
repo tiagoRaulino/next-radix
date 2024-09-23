@@ -15,6 +15,7 @@ function SearchBar({ search, onChange, placeholder }: SearchBarProps) {
 
     return (
         <TextField.Root
+            size="2"
             type="text"
             value={search}
             onChange={handleChange}

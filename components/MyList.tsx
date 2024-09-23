@@ -1,10 +1,10 @@
 'use client'
 
-import { Container, Box } from "@radix-ui/themes";
+import { Box } from "@radix-ui/themes";
 import { useState, useEffect } from 'react';
 import MyCard from './MyCard';
 import SearchBar from "./SearchBar";
-import { fetchRoomData } from '../app/api/fetchRoomData';  // Import the function
+import { fetchRoomData } from '../app/api/fetchRoomData';
 
 interface RoomData {
     floor: number;
@@ -25,14 +25,22 @@ function MyList() {
         fetchRoomData().then(setRoomData);
     }, []);
 
-    const filteredRooms = roomData.filter((data) =>
-        data.name.toLowerCase().includes(search.toLowerCase())
-    );
+    const filteredRooms = roomData
+        .filter((data) =>
+            data.name.toLowerCase().includes(search.toLowerCase())
+        )
+        .sort((a, b) => a.name.localeCompare(b.name));
 
     return (
-        <Container maxWidth={"480px"}>
-            <SearchBar search={search} onChange={setSearch} />
-            <Box style={{ maxHeight: '720px', overflowY: 'auto', width: '100%' }}>
+        <Box maxWidth={"480px"}>
+            <SearchBar placeholder="Pesquise uma sala" search={search} onChange={setSearch} />
+            <Box
+                style={{
+                    maxHeight: '70vh',
+                    overflowY: 'auto',
+                    width: '100%',
+                }}
+            >
                 {filteredRooms.map((data, index) => (
                     <MyCard
                         key={index}
@@ -44,7 +52,7 @@ function MyList() {
                     />
                 ))}
             </Box>
-        </Container>
+        </Box>
     );
 }
 

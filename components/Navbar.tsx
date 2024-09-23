@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
                     <Link href="/ajuda">
                         <Button variant="soft" className="text-white font-medium">Ajuda</Button>
                     </Link>
-                    <Link href="/profile/1">
+                    <Link href="/profile/527898">
                         <Button variant="soft" className="text-white font-medium">Perfil</Button>
                     </Link>
                     <Link href="/login">
@@ -71,7 +71,7 @@ const Navbar: React.FC = () => {
                         <Link href="/ajuda">
                             <Button variant="ghost" className="text-white font-medium">Ajuda</Button>
                         </Link>
-                        <Link href="/profile/1">
+                        <Link href="/profile/527898">
                             <Button variant="ghost" className="text-white font-medium">Perfil</Button>
                         </Link>
                     </Flex>

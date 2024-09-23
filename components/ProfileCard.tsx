@@ -1,48 +1,42 @@
-import { Card, Flex, Text, Badge, Box } from "@radix-ui/themes";
+import { AvatarIcon } from "@radix-ui/react-icons";
+import { Card, Flex, Text, Badge, Box, Avatar } from "@radix-ui/themes";
 
-interface RoomData {
-    floor: number;
-    id: number;
+interface ProfileDataProps {
     name: string;
-    status: string;
-    user: any;
+    userId: number;
+    number: string;
 }
 
-const MyCard: React.FC<RoomData> = ({ floor, name, user, status, id }) => {
-    const getStatusBadge = (status: string) => {
-        if (status === "avaliable") {
-            return <Badge variant="outline" color="gray">Chave disponível</Badge>;
-        } else if (status === "occupied") {
-            return <Badge color="green">Aberta</Badge>;
-        }
-        return null;
-    };
+const ProfileCard: React.FC<ProfileDataProps> = ({ name, userId, number }) => {
 
     return (
-        <Box key={id} maxWidth="480px">
+        <Box key={userId} maxWidth="480px">
             <Card size={"2"}>
                 <Flex gap="3" align="center">
+                    <Avatar
+                        size="5"
+                        src="https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?&w=64&h=64&dpr=2&q=70&crop=focalpoint&fp-x=0.67&fp-y=0.5&fp-z=1.4&fit=crop"
+                        fallback="T"
+                    />
                     <Box>
                         <Text as="div" size="3" weight="bold" mb="2">
                             {name}
                         </Text>
                         <Text as="div" size="2" color="gray">
-                            Atualmente com:
-                        </Text>
-                        <Text as="div" size="2" color="gray">
-                            {user}
+                            {userId}
                         </Text>
                     </Box>
-                    <Flex direction="column" align="end" className="ml-auto justify-between">
-                        <div className="mb-3">
-                            {getStatusBadge(status)}
-                        </div>
-                    </Flex>
+                    <Box className="block ml-auto mb-auto">
+                        <Badge>
+                            Aluno
+                            <AvatarIcon />
+                        </Badge>
+                    </Box>
                 </Flex>
             </Card>
         </Box>
     );
 };
 
-export default MyCard;
+export default ProfileCard;
 

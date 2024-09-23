@@ -1,6 +1,7 @@
 'use client';
 
-import { Heading, Flex, TextField, Box, Button, Text } from '@radix-ui/themes';
+import ProfileCard from '@/components/ProfileCard';
+import { Heading, Flex, TextField, Box, Button, Link } from '@radix-ui/themes';
 
 function Login() {
     return (
@@ -11,28 +12,28 @@ function Login() {
             className="p-2 text-white"
             style={{ minHeight: `calc(100vh - 57px)` }}
         >
-            <Box className="w-full max-w-lg rounded-lg  px-3 pt-20 pb-24 border border-[#3B3D41]">
+            <Box className="w-full max-w-md rounded-lg  px-3 pt-20 pb-24 border border-[#3B3D41]">
                 <Heading mb="5" size="7" className="text-white mb-24">
                     Faça seu login
                 </Heading>
-                <form className="space-y-5">
-                    <Flex direction="column" gap="2">
+                <form>
+                    <Box mb="3">
                         <TextField.Root size="3"
                             type="text"
                             placeholder="Digite sua matrícula ou Siape">
                         </TextField.Root>
-                    </Flex>
-                    <Flex direction="column" gap="2">
+                    </Box>
+                    <Box mb="3">
                         <TextField.Root size="3"
                             type="text"
                             placeholder="Digite sua Senha">
                         </TextField.Root>
-                    </Flex>
+                    </Box>
                     <Button
+                        mt="4"
                         type="submit"
-                        variant="solid"
                         size="4"
-                        className="w-full mt-4 bg-blue-600 text-white hover:bg-blue-700"
+                        className="w-full mt-4"
                     >
                         Login
                     </Button>
