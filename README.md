@@ -6,9 +6,9 @@ Este é um projeto de discentes do curso Sistemas e Mídias Digitais da UFC para
 * Equipe do projeto
 * Resumo do projeto
 * Tecnologias do projeto
-* Algumas funcionalidades do projeto: 
+* Requisitos funcionais do projeto: 
 * Relatório técnico do projeto 
-* Testando a Aplicação 
+* Testando a aplicação 
 
 ## Equipe do projeto
 | Membro | Função |
@@ -23,7 +23,7 @@ Tomando como cliente a secretária do curso Sistemas e Mídias Digitais da Unive
 ## Tecnologias do projeto
 Forms Google, Docs Google, Google drive, Trello, Git, Github, Node.js, Node Package Manager, Vite, React, React router, Bootstrap, Figma, Visual Studio Code, Firefox devtools, Chatgpt, Replit, Nextjs, Typescript, Tailwind, Radix ui, Vercel, Supabase.
 
-## Requisitos funcionalidades do projeto:
+## Requisitos funcionais do projeto:
 | Requisito | Funcionalidade |
 | --------- | -------------- |
 | RFG 001 | Exibir tela de login |
@@ -52,14 +52,6 @@ Forms Google, Docs Google, Google drive, Trello, Git, Github, Node.js, Node Pack
 | RFS 005 | Exibir lista de usuários |
 | RFS 006 | Pesquisar usuários por nome |
 | RFS 007 | Organizar usuários em ordem alfabética |
-
-
-
-
-
-
-
-
 
 ## Relatório técnico do projeto
 Aqui está o link para a mais recente versão do nosso relatório: https://drive.google.com/file/d/1mxZT_8jh0SuRaB8Lbj_uTnNfGAEi7GSr/view?usp=sharing
