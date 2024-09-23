@@ -1,16 +1,20 @@
 'use client';
 
+import MyModal from '@/components/MyModal';
+import EditForm from '@/components/EditForm';
+import QRCodeModalContent from '@/components/QRCodeModalContent';
+import { BorderSplitIcon, Pencil2Icon, TrashIcon } from '@radix-ui/react-icons';
 import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { Flex, AspectRatio, Box } from '@radix-ui/themes';
-import ProfileData from '../../../components/ProfileData';
+import { useState, useEffect } from 'react';
+import { Flex, AspectRatio, Box, Button } from '@radix-ui/themes';
+import ProfileData from '@/components/ProfileData';
 
 interface UserProfile {
-  ddd: number
-  id:	number
-  name:	string
-  number:	number
-  password:	string
+  ddd: number;
+  id: number;
+  name: string;
+  number: number;
+  password: string;
 }
 
 const ProfilePage = () => {
@@ -65,6 +69,34 @@ const ProfilePage = () => {
           </AspectRatio>
         </Box>
         <ProfileData name={profile.name} userId={profile.id} number={`${profile.ddd} ${profile.number}`} />
+        <Flex mt="4" gap="2" className='max-w-lg mx-auto justify-between'>
+          <Flex gap="2">
+            <MyModal
+              buttonLabel="Editar"
+              title="Editar Detalhes"
+              icon={<Pencil2Icon />}
+              buttonProps={{
+                variant: "soft",
+              }}
+            >
+              <EditForm profile={profile} />
+            </MyModal>
+            <Button variant='soft' color="red">
+              Deletar
+              <TrashIcon />
+            </Button>
+          </Flex>
+          <MyModal
+            buttonLabel="Gerar QR Code"
+            title="QR Code"
+            icon={<BorderSplitIcon />}
+            buttonProps={{
+              variant: "soft",
+            }}
+          >
+            <QRCodeModalContent profileId={profile.id} />
+          </MyModal>
+        </Flex>
       </Box>
     </Flex>
   );

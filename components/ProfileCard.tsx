@@ -1,5 +1,6 @@
 import { AvatarIcon } from "@radix-ui/react-icons";
 import { Card, Flex, Text, Badge, Box, Avatar } from "@radix-ui/themes";
+import { useRouter } from "next/navigation";
 
 interface ProfileDataProps {
     name: string;
@@ -8,10 +9,15 @@ interface ProfileDataProps {
 }
 
 const ProfileCard: React.FC<ProfileDataProps> = ({ name, userId, number }) => {
+    const router = useRouter();
+
+    const handleClick = () => {
+        router.push(`/profile/${userId}`);
+    };
 
     return (
         <Box key={userId} maxWidth="480px">
-            <Card size={"2"}>
+            <Card onClick={handleClick} size={"2"} style={{ cursor: "pointer" }}>
                 <Flex gap="3" align="center">
                     <Avatar
                         size="5"
@@ -23,7 +29,10 @@ const ProfileCard: React.FC<ProfileDataProps> = ({ name, userId, number }) => {
                             {name}
                         </Text>
                         <Text as="div" size="2" color="gray">
-                            {userId}
+                            Matrícula: {userId}
+                        </Text>
+                        <Text as="div" size="2" color="gray">
+                            Número: {number}
                         </Text>
                     </Box>
                     <Box className="block ml-auto mb-auto">
@@ -39,4 +48,3 @@ const ProfileCard: React.FC<ProfileDataProps> = ({ name, userId, number }) => {
 };
 
 export default ProfileCard;
-

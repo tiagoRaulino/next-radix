@@ -1,10 +1,9 @@
-import React from 'react'
-import ProfilesList from './ProfilesList'
+import ProfilesList from './ProfilesList';
 
 const ModalContent2 = () => {
-  return (
-    <ProfilesList/>
-  )
-}
+    return (
+        <ProfilesList />
+    );
+};
 
-export default ModalContent2
+export default ModalContent2;

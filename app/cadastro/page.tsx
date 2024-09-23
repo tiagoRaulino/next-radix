@@ -2,7 +2,7 @@
 
 import { Heading, Flex, TextField, Box, Button } from '@radix-ui/themes';
 
-function Login() {
+function Cadastro() {
     return (
         <Flex
             direction="column"
@@ -13,7 +13,7 @@ function Login() {
         >
             <Box className="w-full max-w-md rounded-lg  px-3 pt-20 pb-24 border border-[#3B3D41]">
                 <Heading mb="5" size="7" className="text-white mb-24">
-                    Faça seu login
+                    Faça seu Cadastro
                 </Heading>
                 <form>
                     <Box mb="3">
@@ -34,7 +34,7 @@ function Login() {
                         size="4"
                         className="w-full mt-4"
                     >
-                        Login
+                        Cadastro
                     </Button>
                 </form>
             </Box>
@@ -42,4 +42,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Cadastro;

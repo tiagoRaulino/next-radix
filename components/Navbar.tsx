@@ -27,23 +27,26 @@ const Navbar: React.FC = () => {
                 </div>
 
                 {/*Navegação Desktop*/}
-                <div className="hidden md:flex gap-1 justify-center">
-                    <Link href="/">
-                        <Button variant="soft" className="text-white font-medium border-0">Salas</Button>
-                    </Link>
-                    <Link href="/credentials">
-                        <Button variant="soft" className="text-white font-medium">Credenciais</Button>
-                    </Link>
-                    <Link href="/ajuda">
-                        <Button variant="soft" className="text-white font-medium">Ajuda</Button>
-                    </Link>
-                    <Link href="/profile/527898">
-                        <Button variant="soft" className="text-white font-medium">Perfil</Button>
-                    </Link>
-                    <Link href="/login">
-                        <Button className="text-white font-medium">Login</Button>
-                    </Link>
-                </div>
+                <Flex>
+                    <Flex className="hidden md:flex gap-4 my-auto mr-4 justify-center">
+                        <Link className="text-white font-medium my-auto" href="/">
+                            Salas
+                        </Link>
+                        <Link className="text-white font-medium my-auto" href="/credentials">
+                            Credenciais
+                        </Link>
+                        <Link className="text-white font-medium my-auto" href="/dashboard">
+                            Dashboard
+                        </Link>
+                        <Link className="text-white font-medium my-auto" href="/profile/527898">
+                            Perfil
+                        </Link>
+                        <Link href="/login">
+                            <Button>Login</Button>
+                        </Link>
+                    </Flex>
+
+                </Flex>
 
                 {/*Botão Navegação Mobile*/}
                 <div className="md:hidden">
@@ -62,17 +65,20 @@ const Navbar: React.FC = () => {
                         direction="column"
                         className="bg-zinc-900 text-white px-4 py-2 md:hidden"
                     >
-                        <Link href="/">
-                            <Button variant="ghost" className="text-white font-medium">Salas</Button>
+                        <Link className="text-white my-auto text-sm" href="/">
+                            Salas
                         </Link>
-                        <Link href="/credentials">
-                            <Button variant="ghost" className="text-white font-medium">Credenciais</Button>
+                        <Link className="text-white my-auto text-sm" href="/credentials">
+                            Credenciais
                         </Link>
-                        <Link href="/ajuda">
-                            <Button variant="ghost" className="text-white font-medium">Ajuda</Button>
+                        <Link className="text-white my-auto text-sm" href="/dashboard">
+                            Dashboard
                         </Link>
-                        <Link href="/profile/527898">
-                            <Button variant="ghost" className="text-white font-medium">Perfil</Button>
+                        <Link className="text-white my-auto text-sm" href="/profile/527898">
+                            Perfil
+                        </Link>
+                        <Link className="text-white my-auto text-sm" href="/login">
+                            Login
                         </Link>
                     </Flex>
                 )

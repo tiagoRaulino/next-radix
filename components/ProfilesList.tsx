@@ -22,14 +22,18 @@ function ProfilesList() {
         fetchProfileData().then(setProfileData);
     }, []);
 
-    const filteredRooms = profileData
+    const filteredUsers = profileData
         .filter((data) =>
             data.name.toLowerCase().includes(search.toLowerCase())
         )
         .sort((a, b) => a.name.localeCompare(b.name));
 
     return (
-        <Box maxWidth={"480px"}>
+        <Box style={{
+            maxHeight: '70vh',
+            overflowY: 'auto',
+            width: '100%',
+        }}>
             <SearchBar placeholder="Pesquise uma sala" search={search} onChange={setSearch} />
             <Box
                 style={{
@@ -38,7 +42,7 @@ function ProfilesList() {
                     width: '100%',
                 }}
             >
-                {filteredRooms.map((profileData) => (
+                {filteredUsers.map((profileData) => (
                     <ProfileCard name={profileData.name} userId={profileData.id} number={`${profileData.ddd} ${profileData.number}`} />
                 ))}
             </Box>

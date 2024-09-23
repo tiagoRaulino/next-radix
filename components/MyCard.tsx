@@ -43,7 +43,7 @@ const MyCard: React.FC<RoomData> = ({ floor, name, user, status, id }) => {
                         <div>
                             {user === "Secretaria" && (
                                 <MyModal buttonLabel="Solicitar" title="Solicitação de chave">
-                                    <ModalContent2 />
+                                    <ModalContent1 />
                                 </MyModal>
                             )}
                             {user === "João Victor Alves" && (
