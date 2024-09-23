@@ -11,9 +11,11 @@ Este é um projeto de discentes do curso Sistemas e Mídias Digitais da UFC para
 * Testando a Aplicação 
 
 ## Equipe do projeto
-* Guilherme Maciel Miranda
-* Guilherme Melo Miranda
-* Tiago Raulino Cavalcante de Lima
+| Membro | Função |
+| ------ | ------ |
+| Guilherme Maciel Miranda | Suporte |
+| Guilherme Melo Miranda | Designer |
+| Tiago Raulino Cavalcante de Lima | Programador |
 
 ## Resumo do projeto
 Tomando como cliente a secretária do curso Sistemas e Mídias Digitais da Universidade Federal do Ceará (UFC), a proposta é a criação de uma aplicação que automatiza o processo de empréstimo de chaves para o acesso de salas e laboratórios. O atual sistema conta com diversos problemas quanto a perda de chaves, confusão de quem está com o porte das chaves e até na clareza do registro que, atualmente, é realizado em um protocolo de papel.
