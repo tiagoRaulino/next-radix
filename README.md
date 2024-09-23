@@ -54,7 +54,7 @@ Forms Google, Docs Google, Google drive, Trello, Git, Github, Node.js, Node Pack
 | RFS 007 | Organizar usuários em ordem alfabética |
 
 ## Relatório técnico do projeto
-Aqui está o link para a mais recente versão do nosso relatório: https://drive.google.com/file/d/1mxZT_8jh0SuRaB8Lbj_uTnNfGAEi7GSr/view?usp=sharing
+Aqui está o link para a mais recente versão do nosso relatório: https://drive.google.com/file/d/1LcoFDogiEr91Pjnte4hbQRsaMfuFVsy1/view?usp=sharing
 
 ## Testando a aplicação 
 
