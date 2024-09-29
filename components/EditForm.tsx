@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { TextField, Button, Box } from '@radix-ui/themes';
+import { TextField, Button, Box, Dialog } from '@radix-ui/themes';
 
 interface EditFormProps {
     profile: {
@@ -46,7 +46,7 @@ const EditForm: React.FC<EditFormProps> = ({ profile }) => {
 
             router.refresh();
         } catch (error) {
-            console.error('Error updating profile:', error);
+            console.error(`Error updating profile at: https://portuno-api.vercel.app/users/${profile.id}`, error);
         }
     };
 
@@ -57,7 +57,7 @@ const EditForm: React.FC<EditFormProps> = ({ profile }) => {
                     id="name"
                     type="text"
                     value={name}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setName(e.target.value); console.log(name)}}
                     required
                     className="p-2 border border-gray-300 rounded-md w-full text-white placeholder-gray-400"
                 />

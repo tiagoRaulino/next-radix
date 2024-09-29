@@ -30,9 +30,7 @@ function MyModal({ buttonLabel, children, title, buttonProps, icon }: MyModalPro
                     >
                         <Box className="border-b border-[#3B3D41] px-2 py-1">
                             <Box className="flex justify-between items-start">
-                                <Text className='font-semibold'>
-                                    {title}
-                                </Text>
+                                <Dialog.Title className='font-semibold'>{title}</Dialog.Title>
                                 <Dialog.Close asChild>
                                     <IconButton className='mt-1'>
                                         <Cross2Icon width="18" height="18" />

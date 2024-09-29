@@ -2,6 +2,7 @@ import { Card, Flex, Text, Badge, Box, Button } from "@radix-ui/themes";
 import MyModal from "./MyModal";
 import ModalContent1 from "./ModalContent1";
 import ModalContent2 from "./ModalContent2";
+import ModalContentForms from "./ModalContentForms";
 
 interface RoomData {
     floor: number;
@@ -43,7 +44,7 @@ const MyCard: React.FC<RoomData> = ({ floor, name, user, status, id }) => {
                         <div>
                             {user === "Secretaria" && (
                                 <MyModal buttonLabel="Solicitar" title="Solicitação de chave">
-                                    <ModalContent1 />
+                                    <ModalContentForms />
                                 </MyModal>
                             )}
                             {user === "João Victor Alves" && (

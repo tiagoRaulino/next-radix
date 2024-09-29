@@ -34,7 +34,7 @@ function ProfilesList() {
             overflowY: 'auto',
             width: '100%',
         }}>
-            <SearchBar placeholder="Pesquise uma sala" search={search} onChange={setSearch} />
+            <SearchBar placeholder="Pesquise um usuário" search={search} onChange={setSearch} />
             <Box
                 style={{
                     maxHeight: '70vh',
