@@ -25,8 +25,6 @@ function MyList() {
         fetchRoomData().then(setRoomData);
     }, []);
 
-    console.log(roomData)
-
     const filteredRooms = roomData
         .filter((data) =>
             data.name.toLowerCase().includes(search.toLowerCase())
