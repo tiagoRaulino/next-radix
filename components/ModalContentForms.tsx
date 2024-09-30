@@ -1,6 +1,15 @@
 import { Dialog, Text } from '@radix-ui/themes';
 import React, { useState, useEffect } from 'react';
 import { fetchRoomData } from '../app/api/fetchRoomData';
+import { fetchProfileData } from '../app/api/fetchProfileData';
+
+interface UserProfile {
+  ddd: number;
+  id: number;
+  name: string;
+  number: number;
+  password: string;
+}
 
 interface RoomData {
   floor: number;
@@ -18,20 +27,53 @@ interface TransferKey {
   keyPasser: number;
   keyReceptor: number;
   timeStamp?: string;
-};
+}
 
 const ModalContentForms: React.FC = () => {
   const [roomData, setRoomData] = useState<RoomData[]>([]);
+  const [profileData, setProfileData] = useState<UserProfile[]>([]);
   const [classroomId, setClassroomId] = useState('');
   const [fontUserId, setFontUserId] = useState('');
   const [destinyUserId, setDestinyUserId] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     fetchRoomData().then(setRoomData);
   }, []);
 
+  useEffect(() => {
+    fetchProfileData().then(setProfileData);
+  }, []);
+
+  const validateIds = () => {
+    const classroom = roomData.find(room => room.id === Number(classroomId));
+    if (!classroom) {
+      setErrorMessage(`Classroom with ID ${classroomId} does not exist.`);
+      return false;
+    }
+
+    const fontUserExists = profileData.some(user => user.id === Number(fontUserId));
+    const destinyUserExists = profileData.some(user => user.id === Number(destinyUserId));
+
+    if (!fontUserExists) {
+      setErrorMessage(`Font User with ID ${fontUserId} does not exist.`);
+      return false;
+    }
+
+    if (!destinyUserExists) {
+      setErrorMessage(`Destiny User with ID ${destinyUserId} does not exist.`);
+      return false;
+    }
+
+    setErrorMessage(''); // Clear any existing error message
+    return true;
+  };
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+
+    // Validate IDs before sending the request
+    if (!validateIds()) return;
 
     const timeStamp = new Date().toISOString();
 
@@ -39,7 +81,7 @@ const ModalContentForms: React.FC = () => {
       classroom: Number(classroomId),
       keyPasser: Number(fontUserId),
       keyReceptor: Number(destinyUserId),
-      timeStamp: timeStamp,
+      timeStamp,
     };
 
     console.log('Data to be sent:', data);
@@ -64,13 +106,16 @@ const ModalContentForms: React.FC = () => {
       console.error('Error:', error);
       // Handle error
     }
-
   };
+
   return (
     <div className="p-4">
       <Dialog.Description>
         <Text className="invisible">Repasse de Chave</Text>
       </Dialog.Description>
+
+      {errorMessage && <div className="text-red-500">{errorMessage}</div>}
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="classroomId" className="block text-sm font-medium text-white">

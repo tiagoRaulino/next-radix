@@ -12,7 +12,6 @@ export default function Home() {
       style={{ minHeight: `calc(100vh - 57px)` }}
     >
       <Container>
-
         <Flex className="block center gap-8 md:flex">
           <Box mb="4">
             <Heading mb="5" mt="6" size="7">Lista de salas</Heading>
