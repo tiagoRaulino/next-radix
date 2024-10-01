@@ -42,8 +42,8 @@ function ProfilesList() {
                     width: '100%',
                 }}
             >
-                {filteredUsers.map((profileData) => (
-                    <ProfileCard name={profileData.name} userId={profileData.id} number={`${profileData.ddd} ${profileData.number}`} />
+                {filteredUsers.map((profileData, index) => (
+                    <ProfileCard key={index} name={profileData.name} userId={profileData.id} number={`${profileData.ddd} ${profileData.number}`} />
                 ))}
             </Box>
         </Box>

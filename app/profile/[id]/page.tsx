@@ -71,7 +71,15 @@ const ProfilePage = () => {
         <ProfileData name={profile.name} userId={profile.id} number={`${profile.ddd} ${profile.number}`} />
         <Flex mt="4" gap="2" className='max-w-lg mx-auto justify-between'>
           <Flex gap="2">
-            <EditForm profile={profile} />
+            <MyModal
+              buttonLabel="Editar"
+              title="Editar Perfil"
+              icon={<Pencil2Icon />}
+              buttonProps={{
+                variant: "soft",
+              }}>
+              <EditForm profile={profile} />
+            </MyModal>
             <Button variant='soft' color="red">
               Deletar
               <TrashIcon />

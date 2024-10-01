@@ -1,6 +1,4 @@
-'use client';
-
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { TextField, Button, Box, Dialog } from '@radix-ui/themes';
 
@@ -15,11 +13,21 @@ interface EditFormProps {
 }
 
 const EditForm: React.FC<EditFormProps> = ({ profile }) => {
-    const [name, setName] = useState(profile.name);
-    const [ddd, setDdd] = useState(profile.ddd.toString());
-    const [number, setNumber] = useState(profile.number.toString());
-    const [password, setPassword] = useState(profile.password);
+    const [name, setName] = useState('');
+    const [ddd, setDdd] = useState('');
+    const [number, setNumber] = useState('');
+    const [password, setPassword] = useState('');
     const router = useRouter();
+
+    useEffect(() => {
+        // Initialize state after component is mounted to prevent hydration mismatch
+        if (profile) {
+            setName(profile.name);
+            setDdd(profile.ddd.toString());
+            setNumber(profile.number.toString());
+            setPassword(profile.password);
+        }
+    }, [profile]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -57,7 +65,7 @@ const EditForm: React.FC<EditFormProps> = ({ profile }) => {
                     id="name"
                     type="text"
                     value={name}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setName(e.target.value); console.log(name)}}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
                     required
                     className="p-2 border border-gray-300 rounded-md w-full text-white placeholder-gray-400"
                 />
