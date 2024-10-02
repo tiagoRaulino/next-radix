@@ -13,9 +13,9 @@ Este é um projeto de discentes do curso Sistemas e Mídias Digitais da UFC para
 ## Equipe do projeto
 | Membro | Função |
 | ------ | ------ |
-| Guilherme Maciel Miranda | Suporte |
-| Guilherme Melo Miranda | Designer |
-| Tiago Raulino Cavalcante de Lima | Programador |
+| Guilherme Maciel Miranda | Designer UX |
+| Guilherme Melo Miranda | Designer UI/UX |
+| Tiago Raulino Cavalcante de Lima | Programador Chefe |
 
 ## Resumo do projeto
 Tomando como cliente a secretária do curso Sistemas e Mídias Digitais da Universidade Federal do Ceará (UFC), a proposta é a criação de uma aplicação que automatiza o processo de empréstimo de chaves para o acesso de salas e laboratórios. O atual sistema conta com diversos problemas quanto a perda de chaves, confusão de quem está com o porte das chaves e até na clareza do registro que, atualmente, é realizado em um protocolo de papel.
@@ -24,34 +24,18 @@ Tomando como cliente a secretária do curso Sistemas e Mídias Digitais da Unive
 Forms Google, Docs Google, Google drive, Trello, Git, Github, Node.js, Node Package Manager, Vite, React, React router, Bootstrap, Figma, Visual Studio Code, Firefox devtools, Chatgpt, Replit, Nextjs, Typescript, Tailwind, Radix ui, Vercel, Supabase.
 
 ## Requisitos funcionais do projeto:
-| Requisito | Funcionalidade |
-| --------- | -------------- |
-| RFG 001 | Exibir tela de login |
-| RFG 019 | Responsividade tela de login |
-| RFG 002 | Inserir dados nos campos de preenchimento |
-| RFG 005 | Exibir tela de salas |
-| RFG 006 | Navegar entre a lista de salas |
-| RFG 007 | Pesquisar sala por nome |
-| RFG 008 | Exibir histórico |
-| RFG 009 | Navegar entre as seções do aplicativo |
-| RFG 010 | Acessar tela de salas |
-| RFG 011 | Acessar tela de perfil |
-| RFG 012 | Exibir tela de perfil |
-| RFG 015 | Gerar QR Code para receber chave |
-| RFG 016 | Selecionar transferir chave para outro usuário |
-| RFG 021 | Rotas dinâmicas para página de perfil de usuário |
-| RFG 022 | Responsividade tela de perfil |
-| RFG 023 | Exibir modal editar perfil |
-| RFG 024 | Exibir dados de perfil (DB) |
-| RFG 020 | Ordenar salas por ordem alfabética |
-| RFC 001 | Acessar tela de credenciais |
-| RFC 002 | Exibir tela de credenciais |
-| RFC 007 | Credenciais divididas em sanfonas (accordions) |
-| RFS 001 | Acessar tela de cadastro de usuário |
-| RFS 002 | Exibir tela de cadastro |
-| RFS 005 | Exibir lista de usuários |
-| RFS 006 | Pesquisar usuários por nome |
-| RFS 007 | Organizar usuários em ordem alfabética |
+- [x]  Autenticar usuário
+- [x]  Listar salas e laboratórios
+- [x]  Pesquisa de salas por nome
+- [x]  Exibir histórico de troca de chave
+- [x]  Exibir dados de usuário
+- [x]  Gerar QR code de usuário
+- [x]  Transferir chave para outro usuário
+- [ ]  Atribuir acesso de salas e laboratórios
+- [ ]  Listar acesso de salas e laboratórios
+- [x]  Criar usuário
+- [ ]  Editar usuários
+- [x]  Listar usuários
 
 ## Relatório técnico do projeto
 Aqui está o link para a mais recente versão do nosso relatório: https://drive.google.com/file/d/1LcoFDogiEr91Pjnte4hbQRsaMfuFVsy1/view?usp=sharing
