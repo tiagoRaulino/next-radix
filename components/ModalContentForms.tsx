@@ -1,5 +1,6 @@
 import { Dialog, Text } from '@radix-ui/themes';
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { fetchRoomData } from '../app/api/fetchRoomData';
 import { fetchProfileData } from '../app/api/fetchProfileData';
 
@@ -30,12 +31,25 @@ interface TransferKey {
 }
 
 const ModalContentForms: React.FC = () => {
+  const router = useRouter();
   const [roomData, setRoomData] = useState<RoomData[]>([]);
   const [profileData, setProfileData] = useState<UserProfile[]>([]);
   const [classroomId, setClassroomId] = useState('');
   const [fontUserId, setFontUserId] = useState('');
   const [destinyUserId, setDestinyUserId] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    // Check if user is logged in
+    const loggedInUser = localStorage.getItem('user');
+    if (loggedInUser) {
+      const user = JSON.parse(loggedInUser);
+      setFontUserId(user.id.toString()); // Set fontUserId to the logged-in user's ID
+    } else {
+      // Redirect to login if user is not logged in
+      router.push('/login');
+    }
+  }, [router]);
 
   useEffect(() => {
     fetchRoomData().then(setRoomData);
@@ -52,13 +66,7 @@ const ModalContentForms: React.FC = () => {
       return false;
     }
 
-    const fontUserExists = profileData.some(user => user.id === Number(fontUserId));
     const destinyUserExists = profileData.some(user => user.id === Number(destinyUserId));
-
-    if (!fontUserExists) {
-      setErrorMessage(`Font User with ID ${fontUserId} does not exist.`);
-      return false;
-    }
 
     if (!destinyUserExists) {
       setErrorMessage(`Destiny User with ID ${destinyUserId} does not exist.`);
@@ -79,7 +87,7 @@ const ModalContentForms: React.FC = () => {
 
     const data: TransferKey = {
       classroom: Number(classroomId),
-      keyPasser: Number(fontUserId),
+      keyPasser: Number(fontUserId), // Font user is set to the logged-in user
       keyReceptor: Number(destinyUserId),
       timeStamp,
     };
@@ -133,15 +141,14 @@ const ModalContentForms: React.FC = () => {
 
         <div>
           <label htmlFor="fontUserId" className="block text-sm font-medium text-white">
-            Font User ID
+            Font User ID (Logged-in)
           </label>
           <input
             type="number"
             id="fontUserId"
             value={fontUserId}
-            onChange={(e) => setFontUserId(e.target.value)}
+            readOnly
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            required
           />
         </div>
 

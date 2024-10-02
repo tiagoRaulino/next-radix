@@ -2,6 +2,7 @@ import { Dialog, Text } from '@radix-ui/themes';
 import React, { useState } from 'react';
 
 interface NewUserProfile {
+  id: number; // Add id in the user profile interface
   ddd: number;
   name: string;
   number: number;
@@ -9,6 +10,7 @@ interface NewUserProfile {
 }
 
 const ModalNewUser: React.FC = () => {
+  const [id, setId] = useState(''); // Add state for id
   const [ddd, setDdd] = useState('');
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -19,6 +21,7 @@ const ModalNewUser: React.FC = () => {
     event.preventDefault();
 
     const data: NewUserProfile = {
+      id: Number(id), // Include id in the data to be sent
       ddd: Number(ddd),
       name: String(name),
       number: Number(number),
@@ -28,7 +31,7 @@ const ModalNewUser: React.FC = () => {
     console.log('Data to be sent:', data);
 
     try {
-      const response = await fetch('http://localhost:5000/users', {
+      const response = await fetch('https://portuno-api.vercel.app/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,6 +61,20 @@ const ModalNewUser: React.FC = () => {
       {errorMessage && <div className="text-red-500">{errorMessage}</div>}
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label htmlFor="id" className="block text-sm font-medium text-white">
+            ID
+          </label>
+          <input
+            type="number"
+            id="id"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            required
+          />
+        </div>
+
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-white">
             Name
